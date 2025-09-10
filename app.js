@@ -10,6 +10,11 @@ app.use(bodyParser.json());
 app.use("/auth", authRoutes);
 app.use("/data", dataRoutes);
 
+// Run this once in Node REPL or a script
+// const bcrypt = require("bcrypt");
+// bcrypt.hash("superadmin", 10).then(hash => console.log(hash));
+
+
 sequelize.sync().then(() => {
   app.listen(3000, () => console.log("MVP CRM backend running on http://localhost:3000"));
 });

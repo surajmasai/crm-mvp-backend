@@ -24,5 +24,6 @@ exports.login = async ({ email, password }) => {
   const ok = await bcrypt.compare(password, user.password);
   if (!ok) throw new Error("Invalid credentials");
 
-  return { token: signToken(user), expiresIn: JWT_EXPIRES_IN };
+  // console.log(user, "234234234234")
+  return { token: signToken(user), expiresIn: JWT_EXPIRES_IN, role:user.role};
 };

@@ -1,7 +1,17 @@
 const Data = require("../models/data.model");
+const User = require("../models/user.model");
 
 exports.getAll = async () => {
   return Data.findAll({ include: ["User"], order: [["createdAt", "DESC"]] });
+};
+
+exports.getAllUsers = async (req, res) => {
+  console.log("Fetching users...");
+  const users = await User.findAll().catch(err => {
+    console.error("❌ Query failed:", err);
+  });
+  console.log("✅ Users fetched", users);
+  res.json(users);
 };
 
 exports.create = async ({ title, content, created_by }) => {

@@ -8,4 +8,5 @@ exports.successRegister = (user) => ({
 exports.successLogin = (result) => ({
   token: result.token,
   expiresIn: result.expiresIn,
+  role:result.role
 });
