@@ -6,7 +6,7 @@ const DB_NAME = process.env.DB_NAME || "crm_db";
 const DB_USER = process.env.DB_USER || "root";
 const DB_PASS = process.env.DB_PASS || "";
 const DB_HOST = process.env.DB_HOST || "localhost";
-
+   
 const sequelizeOptions =
   DB_DIALECT === "sqlite"
     ? { dialect: "sqlite", storage: DB_STORAGE, logging: false }
